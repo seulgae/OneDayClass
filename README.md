@@ -6,7 +6,7 @@
 # Back-End
 Spring boot 3.4.4 </br>
 Java / JDK 17 </br>
-MySQL DB / ??? </br>
+MySQL DB / 8.0.42 </br>
 
 # BackEnd - Library
 lombok 1.18.38
