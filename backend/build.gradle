@@ -1,0 +1,60 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+plugins {
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+}
+
+group = 'com.seulgae'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Spring Boot DevTools
+    implementation 'org.springframework.boot:spring-boot-devtools'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// Vue Project + Boot link
+task buildFrontend(type: Exec) {
+    workingDir '../frontend'
+    // Windows면 npm.cmd, mac/Linux면 npm
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine 'cmd', '/c', 'npm.cmd', 'run', 'build'
+    } else {
+        commandLine 'npm', 'run', 'build'
+    }
+}
+
+task copyFrontend(type: Copy) {
+    dependsOn buildFrontend
+    from '../frontend/dist'
+    into 'src/main/resources/static'
+}
+
+tasks.named('processResources') {
+    dependsOn copyFrontend
+}
+
+bootRun {
+    dependsOn copyFrontend
+}
