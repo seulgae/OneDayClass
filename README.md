@@ -12,7 +12,7 @@ MySQL DB / 8.0.42 </br>
 lombok 1.18.38
 
 # Front-End
-Vue@3.5.13 /br>
+Vue@3.5.13 </br>
 Node.js 22.14.0 </br>
 
 ## 환경구축
