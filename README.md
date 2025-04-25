@@ -17,6 +17,7 @@ Node.js 22.14.0 </br>
 
 ## 환경구축
 ### 1. MySQL 서버 설치 </br>
+https://doltae.tistory.com/457
 
 ### 2. Node.js 설치 </br>
 https://nodejs.org/ko/download
