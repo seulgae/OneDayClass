@@ -17,6 +17,7 @@ Node.js 22.14.0 </br>
 
 ## 환경구축
 ### 1. MySQL 서버 설치 </br>
+SpringBatch 프로젝트 작업 시 블로그 정리했던 내용 참조 </br>
 https://doltae.tistory.com/457
 
 ### 2. Node.js 설치 </br>
